@@ -1,7 +1,6 @@
-<h1>This Heroine's Page</h1>
+<h1> <%= @heroine.name %></h1>
 
-<p>Name: <%= @heroine.name %></p>
-<p>Super Name:<%= @heroine.super_name %></p>
-<p>Power: <%= link_to @heroine.power.name, power_path(@heroine.power) %></p>
+<p>Super Name: <%= @heroine.super_name %></p>
+<p>Power: <%= link_to @heroine.power.name.capitalize, power_path(@heroine.power) %></p>
 <br><br>
 <%= link_to "Back to All Heroines", heroines_path %>
