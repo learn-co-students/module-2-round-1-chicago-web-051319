@@ -1,10 +1,16 @@
-<h2>All Heroines</h2>
-
+<center>
+<h2>Lists of Heroines</h2>
+<img src="http://www.ox.ac.uk/sites/files/oxford/styles/ow_medium_feature/public/field/field_image_main/Duff_drug_algorithm1.jpg?itok=v-9CJp16" height="300" width="500">
 <ul>
   <% @heroines.each do |heroine| %>
-    <li>
-      <%= heroine.super_name %>
-    </li>
-    <br>
+    <h4>
+      <a href="<%= heroine_path(heroine) %>"><%= heroine.super_name %></a>
+    </h4>
   <% end %>
 </ul>
+<hr>
+<h3>Click below to create your heroine!</h3>
+<a href="<%= heroine_path(:new) %>">Create</a>
+</center>
+<br>
+<br>

@@ -1,0 +1,5 @@
+<h1>Heroine's show page</h1>
+<h3>name: <%= @heroine.name %></h3>
+<h3>Super name: <%= @heroine.super_name %></h3>
+<h3>Power: <a href="<%= power_path(@heroine.power_id) %>"><%= @heroine.power_id %></a></h3>
+<a href="<%= heroines_path(@heroine) %>">Back</a>

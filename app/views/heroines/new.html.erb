@@ -1,0 +1,24 @@
+<% if @errors %>
+  <% @errors.each do |error| %>
+    <font color="red"><%= error %></font>
+  <% end %>
+<% end %>
+
+<center>
+<h1>Create Heroine:</h1>
+<img src="https://media.biocompare.com/m/37/article/334889.jpg" height="200" width="400">
+<%= form_for(@heroine) do |f| %>
+<%= f.label :name %>:
+<%= f.text_field :name %><br><br>
+
+<%= f.label :super_name %>:
+<%= f.text_field :super_name %><br>
+
+<p>Please select the power from provided lists:</p>
+<%= f.collection_select :power_id, Power.all, :id, :name %>
+<hr>
+<%= f.submit "Create" %>
+
+<% end %>
+<a href="<%= heroines_path(@heroine) %>">Back</a>
+</center>
