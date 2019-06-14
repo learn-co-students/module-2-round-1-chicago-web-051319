@@ -1,11 +1,23 @@
-<br>
 <h2>Marvel's Heroines</h2>
 <hr width="75%">
 <p><%= link_to("Add a heroine to the pantheon", new_heroine_path)%></p>
+
+<%= form_tag(heroines_path, method: "get") do %>
+  <%= label_tag(:search, "Search for a specific power:") %>
+  <%= text_field_tag(:search, params[:search]) %>
+  <%= submit_tag("Search") %>
+<% end %>
+
+<% if @apology %>
+  <p><%= @apology %></p>
+<%end%>
+
 <ul>
 <% @heroines.each do |heroine|%>
   <li><%= link_to(heroine.super_name, heroine_path(heroine))%></li>
 <% end %>
 </ul>
+
+<p> To clear a search, and return to the main home page, click <%= link_to("here", heroines_path) %></p>
 
 

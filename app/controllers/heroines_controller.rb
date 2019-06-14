@@ -2,7 +2,15 @@ class HeroinesController < ApplicationController
   before_action :find_heroine, only: [:show]
   
   def index
-    @heroines = Heroine.all
+    @powers = Power.all
+    if params[:search]
+      @heroines = Heroine.search(params[:search])
+      if !Power.find_by(name: params[:search])
+        @apology = "That superpower does not exist in our database. All heroines, unfiltered, are listed below:"
+      end
+    else
+      @heroines = Heroine.all
+    end
   end
 
   def show
@@ -31,6 +39,6 @@ class HeroinesController < ApplicationController
   end
 
   def heroine_params
-    params.require(:heroine).permit(:name, :super_name, :power_id)
+    params.require(:heroine).permit(:name, :super_name, :power_id, :search)
   end
 end
