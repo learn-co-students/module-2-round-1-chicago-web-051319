@@ -1,0 +1,6 @@
+<h1>Super Name: <%= @heroine.super_name %></h1>
+<h2>Real Name: <%= @heroine.name %></h2>
+<h2>Power: <%= link_to @heroine_power.name, power_path(@heroine_power)%></h2>
+
+<%= link_to "All Heroines", heroines_path %>
+<%= link_to "View all Super Powers", powers_path(@powers) %>
