@@ -1,0 +1,8 @@
+<h1><%= @power.name.titlecase %></h1>
+<p> <%= @power.description.capitalize %>. </p>
+<h2>Heroines:</h2>
+<% @power.heroines.each do |heroine| %>
+    <ul>
+    <li> <%= link_to heroine.super_name , heroine_path(heroine) %> </li>
+    </ul>
+<% end %>

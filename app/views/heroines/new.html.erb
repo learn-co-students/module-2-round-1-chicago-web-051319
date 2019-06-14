@@ -1,0 +1,10 @@
+<h1>Create Heroine</h1>
+<p> No, not like that...</p>
+
+
+<%= form_for @heroine do %>
+    <p>Regular Name:<%= text_field_tag 'name' , @heroine.name %> </p>
+    <p>SUPER NAME: <%= text_field_tag 'super_name' , @heroine.super_name %> </p>
+    <p> <%= select_tag 'power' , options_for_select(Power.all.each do |power| power.name end )%> </p>
+    <%= submit_tag 'Create!'%>
+<% end %>
