@@ -1,12 +1,16 @@
 <h2>All Superpowers</h2>
 
+
+
 <ul>
   <% @powers.each do |power| %>
     <li>
-      <%= power.name %>
+       <a href="<%= power_path(power) %>"><%= power.name %></a>
       <br>
       Description: <%= power.description %>
     </li>
     <br>
   <% end %>
+
+  <h3><%= link_to "All Heroines", heroines_path %></h3>
 </ul>

@@ -1,0 +1,16 @@
+<% if @errors %>
+  <% @errors.each do |error| %>
+    <p><%= error %></p>
+  <% end %>
+<% end %>
+
+
+<%= form_for @heroine do |f| %>
+
+  <p>Name: <%= f.text_field :name %></p>
+  <p>Super Name: <%= f.text_field :super_name %></p>
+  <p>Power: <%= f.collection_select :power_id, Power.all, :id, :name %></p>
+
+  <%= f.submit "Create Heroine"%>
+
+<% end %>
