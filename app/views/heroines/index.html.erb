@@ -1,10 +1,11 @@
-<h2>All Heroines</h2>
-
+<br>
+<h2>Marvel's Heroines</h2>
+<hr width="75%">
+<p><%= link_to("Add a heroine to the pantheon", new_heroine_path)%></p>
 <ul>
-  <% @heroines.each do |heroine| %>
-    <li>
-      <%= heroine.super_name %>
-    </li>
-    <br>
-  <% end %>
+<% @heroines.each do |heroine|%>
+  <li><%= link_to(heroine.super_name, heroine_path(heroine))%></li>
+<% end %>
 </ul>
+
+

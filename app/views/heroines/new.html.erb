@@ -1,0 +1,20 @@
+<h4> Welcome, new heroine to Marvel's ranks!</h4>
+
+<% if @errors %>
+    <p>Please address the following errors before attempting to save your new heroine:</p>
+    <ul>
+    <% @errors.each do |message| %>
+        <li><%= message %></li>
+    <% end %>
+<% end %>
+
+<h4>Create a new heroine</h4>
+<%= form_for @heroine do |f| %>
+    <p><%= f.label "Name" %></p>
+    <p><%= f.text_field :name %> </p>
+    <p><%= f.label "Super Heroine Name" %></p>
+    <p><%= f.text_field :super_name %> </p>
+    <p><%= f.label "Select a super power below:"%></p>
+    <p><%= f.collection_select :power_id, @powers, :id, :name%></p>
+    <p><%= f.submit "Join the squad - power up!"%></p>
+<%end%>
