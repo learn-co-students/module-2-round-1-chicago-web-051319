@@ -2,6 +2,7 @@ class HeroinesController < ApplicationController
   before_action :all_methods
 
   def index
+
   end
 
   def show
@@ -21,6 +22,14 @@ class HeroinesController < ApplicationController
       @errors = @heroine.errors.full_messages
       render :new
     end
+  end
+
+  def search
+    @power = Power.find_by(name: params[:name])
+    if @power
+      @heroines = Heroine.where(power_id: @power.id)      
+    end
+    render :index
   end
 
   private
